@@ -42,6 +42,31 @@ function graficarRectangulo(x, y, ancho, alto, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, ancho, alto);
 }
+function limpiarCanva() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+/*ctx.clearRect(X, Y, ancho, alto);
+Entonces 0, 0, canvas.width, canvas.height borra desde la esquina superior izquierda hasta cubrir todo el canvas.*/
 
-
-
+function moverIzquierda() {
+    gatoX -= 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+function moverDerecha() {
+    gatoX += 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}function moverArriba() {
+    gatoY -= 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}function moverAbajo() {
+    gatoY += 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}

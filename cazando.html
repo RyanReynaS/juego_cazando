@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
+
 <head>
   <title>Juego Cazando</title>
   <link rel="stylesheet" href="cazando.css">
- 
-</head>
+ </head>
 <body onload="iniciarJuego()">
 
   <h1>Juego Cazando</h1>
@@ -12,11 +12,11 @@
     <canvas id="areajuego" width="500" height="500"></canvas>
 
   <div class="controles">
-    <button>⬆</button>
+    <button type="button" onclick="moverArriba()">⬆</button>
     <br>
-    <button>⬅</button>
-    <button>⬇</button>
-    <button>➡</button>
+    <button type="button" onclick="moverIzquierda()">⬅</button>
+    <button type="button" onclick="moverAbajo()">⬇</button>
+    <button type="button" onclick="moverDerecha()">➡</button>
   </div>
 
 
@@ -26,7 +26,6 @@
   </div>
 
   <p id="mensaje"></p>
-    
-   <script src="cazando.js"></script>
+       <script src="cazando.js"></script>
 </body>
 </html>
