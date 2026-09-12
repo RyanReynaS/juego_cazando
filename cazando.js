@@ -95,21 +95,60 @@ function moverAbajo() {
 // PARTE 4: COMER Y SISTEMA DE PUNTAJE
 // ==========================================
 function detectarColision() {
-    let colisionX = gatoX < comidaX + ANCHO_COMIDA && gatoX + ANCHO_GATO > comidaX;
-    let colisionY = gatoY < comidaY + ALTO_COMIDA && gatoY + ALTO_GATO > comidaY;
+  let colisionX = gatoX < comidaX + ANCHO_COMIDA && gatoX + ANCHO_GATO > comidaX;
+  let colisionY = gatoY < comidaY + ALTO_COMIDA && gatoY + ALTO_GATO > comidaY;
 
-    if (colisionX && colisionY) {
-        // Aumentar puntos
-        puntos = puntos + 1;
-        actualizarTextoHTML("puntos", puntos);
+  if (colisionX && colisionY) {
+    // Alert inicial requerido en la Parte 4.1
+    // alert("¡El gato encontró la comida!"); 
 
-        // Mover comida a posición aleatoria
-        comidaX = generarAleatorio(0, canvas.width - ANCHO_COMIDA);
-        comidaY = generarAleatorio(0, canvas.height - ALTO_COMIDA);
+    // Incrementar puntos y actualizar vista usando utilitarios
+    puntos = puntos + 1;
+    actualizarTextoHTML("puntos", puntos);
 
-        // Limpiar y redibujar
-        limpiarCanva();
-        graficarGato();
-        graficarComida();
+    // Mover comida a posición aleatoria asegurando que quede dentro del canvas
+    comidaX = generarAleatorio(0, canvas.width - ANCHO_COMIDA);
+    comidaY = generarAleatorio(0, canvas.height - ALTO_COMIDA);
+
+    // Redibujar con la nueva posición de la comida
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+
+    // Comprobar si ganó (Parte 5.4)
+    if (puntos >= 6) {
+      clearInterval(intervaloJuego);
+      alert("¡GANASTE! Has alcanzado 6 puntos.");
     }
+  }
+}
+
+// ==========================================
+// PARTE 5: CUENTA REGRESIVA
+// ==========================================
+function restarTiempo() {
+  tiempo = tiempo - 1;
+  actualizarTextoHTML("tiempo", tiempo);
+
+  // Comprobar si perdió (Parte 5.4)
+  if (tiempo <= 0) {
+    clearInterval(intervaloJuego);
+    alert("¡GAME OVER! Se acabó el tiempo.");
+  }
+}
+
+// ==========================================
+// PARTE 6: REINICIAR
+// ==========================================
+function reiniciarJuego() {
+  // Restablecer variables
+  puntos = 0;
+  tiempo = 10;
+  
+  // Actualizar textos en pantalla
+  actualizarTextoHTML("puntos", puntos);
+  actualizarTextoHTML("tiempo", tiempo);
+  
+  // Volver a iniciar el juego (posiciones e intervalo)
+  iniciarJuego();
 }
