@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Juego Cazando</title>
   <link rel="stylesheet" href="cazando.css">
- </head>
+  <!-- Archivo de utilitarios cargado primero -->
+  <script src="utilitarios.js"></script>
+</head>
 <body onload="iniciarJuego()">
 
   <h1>Juego Cazando</h1>
   <p>Autor: Ryan Reyna</p>
-    <canvas id="areajuego" width="500" height="500"></canvas>
+  <canvas id="areajuego" width="500" height="500"></canvas>
 
   <div class="controles">
     <button type="button" onclick="moverArriba()">⬆</button>
@@ -19,13 +21,19 @@
     <button type="button" onclick="moverDerecha()">➡</button>
   </div>
 
-
   <div class="panel">
     <span>Puntos: <span id="puntos">0</span></span>
     <span>Tiempo: <span id="tiempo">10</span></span>
   </div>
 
+  <!-- PARTE 6: Botón de Reiniciar -->
+  <div class="controles">
+    <button type="button" onclick="reiniciarJuego()">REINICIAR 🔄</button>
+  </div>
+
   <p id="mensaje"></p>
-       <script src="cazando.js"></script>
+
+  <!-- Lógica principal del juego -->
+  <script src="cazando.js"></script>
 </body>
 </html>
