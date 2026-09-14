@@ -10,6 +10,7 @@
 <head>
   <!-- Metadatos de la página -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Título que aparece en la pestaña del navegador -->
   <title>Juego Cazando</title>
   <!-- Vincular el archivo CSS para estilos visuales -->
@@ -21,10 +22,15 @@
 <!-- La etiqueta body carga el juego al abrir la página -->
 <body onload="iniciarJuego()">
 
-  <!-- Título principal del juego -->
-  <h1>Juego Cazando</h1>
-  <!-- Información del autor -->
-  <p>Autor: Ryan Reyna</p>
+  <main class="contenedor">
+    <header class="encabezado">
+      <p class="etiqueta">DESAFÍO CONTRARRELOJ</p>
+      <!-- Título principal del juego -->
+      <h1>Juego Cazando</h1>
+      <p class="subtitulo">Guía al gato, encuentra la comida y consigue 6 puntos antes de que acabe el tiempo.</p>
+      <!-- Información del autor -->
+      <p class="autor">Creado por <strong>Ryan Reyna</strong></p>
+    </header>
 
   <!-- ==========================================
        CANVAS - La pantalla donde se dibuja todo
@@ -33,21 +39,22 @@
        width="500" = ancho de 500 píxeles
        height="500" = alto de 500 píxeles
        Este elemento se controla desde JavaScript -->
-  <canvas id="areajuego" width="500" height="500"></canvas>
+    <div class="marco-juego">
+      <canvas id="areajuego" width="500" height="500"></canvas>
+    </div>
 
   <!-- ==========================================
        BOTONES DE CONTROL DE DIRECCIÓN
        ========================================== -->
   <!-- Los botones permiten mover el gato en 4 direcciones
        Cada botón llama a una función de movimiento cuando se hace clic -->
-  <div class="controles">
+  <div class="controles controles-direccion">
     <!-- Botón para mover arriba - Llama a moverArriba() -->
-    <button type="button" onclick="moverArriba()">⬆</button>
-    <br>
+    <button type="button" aria-label="Mover arriba" onclick="moverArriba()">↑</button>
     <!-- Fila con botones izquierda, abajo, derecha -->
-    <button type="button" onclick="moverIzquierda()">⬅</button>
-    <button type="button" onclick="moverAbajo()">⬇</button>
-    <button type="button" onclick="moverDerecha()">➡</button>
+    <button type="button" aria-label="Mover izquierda" onclick="moverIzquierda()">←</button>
+    <button type="button" aria-label="Mover abajo" onclick="moverAbajo()">↓</button>
+    <button type="button" aria-label="Mover derecha" onclick="moverDerecha()">→</button>
   </div>
 
   <!-- ==========================================
@@ -56,9 +63,9 @@
   <!-- Muestra los puntos y el tiempo restante -->
   <div class="panel">
     <!-- Puntos: el <span id="puntos"> se actualiza dinámicamente desde JavaScript -->
-    <span>Puntos: <span id="puntos">0</span></span>
+    <span class="estadistica"><span class="nombre-estadistica">Puntos</span><span id="puntos">0</span></span>
     <!-- Tiempo: el <span id="tiempo"> se actualiza dinámicamente desde JavaScript -->
-    <span>Tiempo: <span id="tiempo">10</span></span>
+    <span class="estadistica"><span class="nombre-estadistica">Tiempo</span><span><span id="tiempo">10</span>s</span></span>
   </div>
 
   <!-- ==========================================
@@ -67,11 +74,12 @@
   <!-- Este botón permite empezar una nueva partida
        Llama a reiniciarJuego() que resetea puntos, tiempo y posiciones -->
   <div class="controles">
-    <button type="button" onclick="reiniciarJuego()">REINICIAR 🔄</button>
+    <button type="button" class="boton-reiniciar" onclick="reiniciarJuego()">↻ Reiniciar partida</button>
   </div>
 
   <!-- Párrafo para mensajes adicionales (actualmente vacío) -->
   <p id="mensaje"></p>
+  </main>
 
   <!-- ==========================================
        CARGAR LA LÓGICA DEL JUEGO

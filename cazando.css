@@ -5,29 +5,76 @@
    ========================================== */
 
 /* ESTILOS DEL CUERPO DE LA PÁGINA (body) */
+* {
+  box-sizing: border-box;
+}
+
 body {
   /* Centra todo el contenido horizontalmente */
   text-align: center;
   /* Tipo de letra a usar en toda la página */
-  font-family: Arial, sans-serif;
+  font-family: "Trebuchet MS", Arial, sans-serif;
   /* Color de fondo de la página (gris claro) */
-  background: #f0f0f0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(251, 191, 36, 0.19), transparent 25rem),
+    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.2), transparent 27rem),
+    #17122c;
+  color: #fff;
   /* Elimina el espaciado por defecto del navegador */
   margin: 0;
   /* Añade 20px de espacio interno en los lados */
-  padding: 20px;
+  padding: 34px 18px;
+  min-height: 100vh;
+}
+
+.contenedor {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(29, 24, 53, 0.87);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.4);
+}
+
+.encabezado {
+  margin-bottom: 22px;
+}
+
+.etiqueta {
+  margin: 0 0 8px;
+  color: #fde68a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
 }
 
 /* ESTILOS DEL TÍTULO PRINCIPAL (h1) */
 h1 {
   /* Reduce el espacio inferior del título */
-  margin-bottom: 5px;
+  margin: 0;
+  color: #fef3c7;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  text-shadow: 0 3px 0 #8b5cf6, 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.subtitulo {
+  max-width: 490px;
+  margin: 15px auto 10px;
+  color: #ddd6fe;
+  line-height: 1.5;
+}
+
+.autor {
+  margin: 0;
+  color: #a7f3d0;
+  font-size: 0.86rem;
 }
 
 /* ESTILOS DEL PANEL DE INFORMACIÓN (clase "panel") */
 .panel {
   /* Espacio vertical de 15px arriba y abajo */
-  margin: 15px 0;
+  margin: 0 0 18px;
   /* Tamaño de la letra en el panel */
   font-size: 18px;
   /* Usar flexbox para alinear elementos horizontalmente */
@@ -35,45 +82,116 @@ h1 {
   /* Centra los elementos horizontalmente */
   justify-content: center;
   /* Espacio de 30px entre los elementos del panel (Puntos y Tiempo) */
-  gap: 30px;
+  gap: 12px;
+}
+
+.estadistica {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+.nombre-estadistica {
+  color: #c4b5fd;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.estadistica span[id] {
+  color: #fde68a;
+  font-size: 1.4rem;
 }
 
 /* ESTILOS DEL CANVAS (área de juego) */
 canvas {
   /* Fondo blanco dentro del canvas */
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
   background: white;
   /* Borde negro de 2px alrededor del canvas */
-  border: 2px solid black;
+  border: 4px solid #fbbf24;
+  border-radius: 13px;
+}
+
+.marco-juego {
+  margin-bottom: 20px;
+  padding: 7px;
+  background: linear-gradient(135deg, #fbbf24, #a855f7, #2dd4bf);
+  border-radius: 19px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* ESTILOS DE LA SECCIÓN DE CONTROLES (clase "controles") */
 .controles {
   /* Espacio superior de 20px */
-  margin-top: 20px;
+  margin-top: 12px;
+}
+
+.controles-direccion {
+  display: grid;
+  grid-template-columns: repeat(3, 58px);
+  justify-content: center;
+  gap: 7px;
+  margin: 0 auto 20px;
+}
+
+.controles-direccion button:first-child {
+  grid-column: 2;
 }
 
 /* ESTILOS DE LOS BOTONES */
 button {
   /* Espacio alrededor de cada botón (5px en todos lados) */
-  margin: 5px;
+  margin: 0;
   /* Espacio interno del botón: 10px arriba/abajo, 16px izquierda/derecha */
-  padding: 10px 16px;
+  padding: 11px 16px;
   /* Tamaño de la letra en los botones */
-  font-size: 18px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 800;
   /* Cambia el cursor a "puntero" cuando pasa el ratón sobre el botón */
   cursor: pointer;
   /* Color de fondo del botón (blanco) */
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
   /* Borde gris claro del botón */
-  border: 1px solid #ccc;
+  border: 0;
   /* Esquinas redondeadas (5px de radio) */
-  border-radius: 5px;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.24);
+  transition: transform 160ms ease, filter 160ms ease;
 }
 
 /* ESTILOS DEL BOTÓN CUANDO EL RATÓN ESTÁ ENCIMA (hover) */
 button:hover {
   /* Cambia el fondo a gris claro cuando pasas el ratón */
-  background-color: #e0e0e0;
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+button:focus-visible {
+  outline: 3px solid #fef3c7;
+  outline-offset: 3px;
+}
+
+.boton-reiniciar {
+  padding-inline: 23px;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  font-size: 0.96rem;
 }
 
 /* ESTILOS DEL PÁRRAFO DE MENSAJES (id "mensaje") */
@@ -83,7 +201,16 @@ button:hover {
   /* Texto en negrita (más grueso) */
   font-weight: bold;
   /* Color rojo oscuro para los mensajes */
-  color: darkred;
+  color: #fef3c7;
   /* Espacio superior de 15px */
-  margin-top: 15px;
+  margin: 16px 0 0;
+}
+
+@media (max-width: 560px) {
+  body { padding: 16px 10px; }
+  .contenedor { padding: 22px 14px; border-radius: 20px; }
+  .marco-juego { padding: 5px; border-radius: 15px; }
+  canvas { border-width: 3px; border-radius: 10px; }
+  .panel { gap: 8px; }
+  .estadistica { padding: 11px; }
 }
