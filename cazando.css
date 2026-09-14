@@ -140,14 +140,18 @@ canvas {
 .controles-direccion {
   display: grid;
   grid-template-columns: repeat(3, 58px);
+  grid-template-areas:
+    ". arriba ."
+    "izquierda abajo derecha";
   justify-content: center;
   gap: 7px;
   margin: 0 auto 20px;
 }
 
-.controles-direccion button:first-child {
-  grid-column: 2;
-}
+.control-arriba { grid-area: arriba; }
+.control-izquierda { grid-area: izquierda; }
+.control-abajo { grid-area: abajo; }
+.control-derecha { grid-area: derecha; }
 
 /* ESTILOS DE LOS BOTONES */
 button {
