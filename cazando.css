@@ -117,7 +117,8 @@ canvas {
   max-width: 500px;
   height: auto;
   margin: 0 auto;
-  background: white;
+  /* La imagen se recorta de forma proporcional para llenar el canvas cuadrado. */
+  background: #16233a url("fondo.jpg") center center / cover no-repeat;
   /* Borde negro de 2px alrededor del canvas */
   border: 4px solid #fbbf24;
   border-radius: 13px;
