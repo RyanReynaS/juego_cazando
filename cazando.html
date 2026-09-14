@@ -1,39 +1,84 @@
+<!-- ==========================================
+     ARCHIVO: cazando.html
+     ==========================================
+     Este es el archivo HTML principal del juego.
+     Define la estructura de la página: canvas, botones, puntos y tiempo.
+     ========================================== -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Metadatos de la página -->
   <meta charset="UTF-8">
+  <!-- Título que aparece en la pestaña del navegador -->
   <title>Juego Cazando</title>
+  <!-- Vincular el archivo CSS para estilos visuales -->
   <link rel="stylesheet" href="cazando.css">
-  <!-- Archivo de utilitarios cargado primero -->
-  <script src="utils.js"></script>
+  <!-- Cargar el archivo de funciones auxiliares PRIMERO (debe ir antes de cazando.js) -->
+  <script src="utilitarios.js"></script>
 </head>
+
+<!-- La etiqueta body carga el juego al abrir la página -->
 <body onload="iniciarJuego()">
 
+  <!-- Título principal del juego -->
   <h1>Juego Cazando</h1>
+  <!-- Información del autor -->
   <p>Autor: Ryan Reyna</p>
+
+  <!-- ==========================================
+       CANVAS - La pantalla donde se dibuja todo
+       ========================================== -->
+  <!-- El canvas es el área donde se dibuja el juego (gato, comida, etc.)
+       width="500" = ancho de 500 píxeles
+       height="500" = alto de 500 píxeles
+       Este elemento se controla desde JavaScript -->
   <canvas id="areajuego" width="500" height="500"></canvas>
 
+  <!-- ==========================================
+       BOTONES DE CONTROL DE DIRECCIÓN
+       ========================================== -->
+  <!-- Los botones permiten mover el gato en 4 direcciones
+       Cada botón llama a una función de movimiento cuando se hace clic -->
   <div class="controles">
+    <!-- Botón para mover arriba - Llama a moverArriba() -->
     <button type="button" onclick="moverArriba()">⬆</button>
     <br>
+    <!-- Fila con botones izquierda, abajo, derecha -->
     <button type="button" onclick="moverIzquierda()">⬅</button>
     <button type="button" onclick="moverAbajo()">⬇</button>
     <button type="button" onclick="moverDerecha()">➡</button>
   </div>
 
+  <!-- ==========================================
+       PANEL DE INFORMACIÓN
+       ========================================== -->
+  <!-- Muestra los puntos y el tiempo restante -->
   <div class="panel">
+    <!-- Puntos: el <span id="puntos"> se actualiza dinámicamente desde JavaScript -->
     <span>Puntos: <span id="puntos">0</span></span>
+    <!-- Tiempo: el <span id="tiempo"> se actualiza dinámicamente desde JavaScript -->
     <span>Tiempo: <span id="tiempo">10</span></span>
   </div>
 
-  <!-- PARTE 6: Botón de Reiniciar -->
+  <!-- ==========================================
+       BOTÓN DE REINICIO
+       ========================================== -->
+  <!-- Este botón permite empezar una nueva partida
+       Llama a reiniciarJuego() que resetea puntos, tiempo y posiciones -->
   <div class="controles">
     <button type="button" onclick="reiniciarJuego()">REINICIAR 🔄</button>
   </div>
 
+  <!-- Párrafo para mensajes adicionales (actualmente vacío) -->
   <p id="mensaje"></p>
 
-  <!-- Lógica principal del juego -->
+  <!-- ==========================================
+       CARGAR LA LÓGICA DEL JUEGO
+       ========================================== -->
+  <!-- Este archivo contiene todas las funciones principales del juego
+       (iniciarJuego, moverArriba, detectarColision, etc.)
+       IMPORTANTE: Se carga DESPUÉS del HTML para que pueda acceder a los elementos -->
   <script src="cazando.js"></script>
 </body>
 </html>

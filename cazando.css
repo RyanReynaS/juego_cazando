@@ -1,49 +1,89 @@
+/* ==========================================
+   ARCHIVO: cazando.css
+   Este archivo define los estilos visuales (colores, tamaños, espacios)
+   de toda la página del juego.
+   ========================================== */
+
+/* ESTILOS DEL CUERPO DE LA PÁGINA (body) */
 body {
+  /* Centra todo el contenido horizontalmente */
   text-align: center;
+  /* Tipo de letra a usar en toda la página */
   font-family: Arial, sans-serif;
+  /* Color de fondo de la página (gris claro) */
   background: #f0f0f0;
+  /* Elimina el espaciado por defecto del navegador */
   margin: 0;
+  /* Añade 20px de espacio interno en los lados */
   padding: 20px;
 }
 
+/* ESTILOS DEL TÍTULO PRINCIPAL (h1) */
 h1 {
+  /* Reduce el espacio inferior del título */
   margin-bottom: 5px;
 }
 
+/* ESTILOS DEL PANEL DE INFORMACIÓN (clase "panel") */
 .panel {
+  /* Espacio vertical de 15px arriba y abajo */
   margin: 15px 0;
+  /* Tamaño de la letra en el panel */
   font-size: 18px;
+  /* Usar flexbox para alinear elementos horizontalmente */
   display: flex;
+  /* Centra los elementos horizontalmente */
   justify-content: center;
+  /* Espacio de 30px entre los elementos del panel (Puntos y Tiempo) */
   gap: 30px;
 }
 
+/* ESTILOS DEL CANVAS (área de juego) */
 canvas {
+  /* Fondo blanco dentro del canvas */
   background: white;
+  /* Borde negro de 2px alrededor del canvas */
   border: 2px solid black;
 }
 
+/* ESTILOS DE LA SECCIÓN DE CONTROLES (clase "controles") */
 .controles {
+  /* Espacio superior de 20px */
   margin-top: 20px;
 }
 
+/* ESTILOS DE LOS BOTONES */
 button {
+  /* Espacio alrededor de cada botón (5px en todos lados) */
   margin: 5px;
+  /* Espacio interno del botón: 10px arriba/abajo, 16px izquierda/derecha */
   padding: 10px 16px;
+  /* Tamaño de la letra en los botones */
   font-size: 18px;
+  /* Cambia el cursor a "puntero" cuando pasa el ratón sobre el botón */
   cursor: pointer;
+  /* Color de fondo del botón (blanco) */
   background-color: #ffffff;
+  /* Borde gris claro del botón */
   border: 1px solid #ccc;
+  /* Esquinas redondeadas (5px de radio) */
   border-radius: 5px;
 }
 
+/* ESTILOS DEL BOTÓN CUANDO EL RATÓN ESTÁ ENCIMA (hover) */
 button:hover {
+  /* Cambia el fondo a gris claro cuando pasas el ratón */
   background-color: #e0e0e0;
 }
 
+/* ESTILOS DEL PÁRRAFO DE MENSAJES (id "mensaje") */
 #mensaje {
+  /* Tamaño de letra grande para que se note */
   font-size: 20px;
+  /* Texto en negrita (más grueso) */
   font-weight: bold;
+  /* Color rojo oscuro para los mensajes */
   color: darkred;
+  /* Espacio superior de 15px */
   margin-top: 15px;
 }
