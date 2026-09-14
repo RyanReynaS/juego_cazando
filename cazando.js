@@ -32,9 +32,9 @@ let intervaloJuego;
 // DIMENSIONES DE LOS OBJETOS DEL JUEGO (en píxeles)
 // ==========================================
 // Alto (altura) del gato en píxeles - más alto = gato más grande verticalmente
-const ALTO_GATO = 50;
+const ALTO_GATO = 80;
 // Ancho (anchura) del gato en píxeles - más ancho = gato más grande horizontalmente
-const ANCHO_GATO = 20;
+const ANCHO_GATO = 40;
 // Alto (altura) de la comida en píxeles
 const ALTO_COMIDA = 40;
 // Ancho (anchura) de la comida en píxeles
@@ -79,7 +79,7 @@ function iniciarJuego() {
 // El gato es un rectángulo de color púrpura (#dfa2f2)
 function graficarGato() {
   // Llama a graficarRectangulo con la posición y dimensiones del gato
-  // El color #dfa2f2 es un púrpura claro
+  // El color #a2f2ee es un púrpura claro
   graficarRectangulo(gatoX, gatoY, ANCHO_GATO, ALTO_GATO, "#dfa2f2");
 }
 
@@ -226,7 +226,7 @@ function restarTiempo() {
     // Detener la cuenta regresiva para que no siga restando
     clearInterval(intervaloJuego);
     // Mostrar mensaje de derrota
-    alert("¡GAME OVER! Se acabó el tiempo.");
+    alert("¡GAME OVER! Perdiste la partida.");
   }
 }
 
@@ -251,4 +251,9 @@ function reiniciarJuego() {
   // - Dibujar los elementos
   // - Iniciar la cuenta regresiva de tiempo
   iniciarJuego();
+}
+
+function desaparecerPersonaje(){
+
+  ctx.clearRect(gatoX,gatoY,ANCHO_GATO,ALTO_GATO);
 }
